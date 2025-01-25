@@ -49,5 +49,8 @@ After running the command with the parameters I got the Json, which I saved to a
 ![kuva](https://github.com/user-attachments/assets/b4298ac4-6a07-42cc-8c94-727b05f4776b)
 
 
+*Panu Peltola*
+
+
 
 
