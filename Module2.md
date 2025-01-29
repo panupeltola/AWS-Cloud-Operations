@@ -119,6 +119,9 @@ I ran the command update-website.sh
 
 The colors had changed and the deed was done.
 
+![kuva](https://github.com/user-attachments/assets/27d2f660-1cef-44ad-b8fc-f697dcfd74b0)
+
+
 # Conclusions
 
 There were a lot of new things in this module but the logic is fairly simple so far. The biggest problem I think will come is the complexity of the aws commands. The documentation will come very familiar to me I think.
