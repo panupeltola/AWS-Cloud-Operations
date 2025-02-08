@@ -54,21 +54,90 @@ Web server shows in the instance list
 Lab done.
 
 
-## Activity 3
+## Activity 3 - Troubleshoot Creating an EC2 Instance Using the AWS CLI
+
+In this activity, you will use the AWS Command Line Interface (AWS CLI) to launch an Amazon Elastic Compute Cloud (Amazon EC2) instance into the eu-west-2 (London) Region.
+
+Activity objectives
+
+After completing this activity, you will be able to:
+
+- Launch an Amazon EC2 instance using the AWS CLI
+- Troubleshoot AWS CLI commands and Amazon EC2 service settings
+
+
+I skip the connection part since it is the same as always.
+
+![kuva](https://github.com/user-attachments/assets/3d0e4c15-7394-4e87-8a2b-80471d3ef3fc)
+
+Configuration.
+
+After running the command I noticed that the program does not echo VPC or Subnet Id.
+This was also a recurring reason for errors. I will look into this problem.
+
+![kuva](https://github.com/user-attachments/assets/1d27b149-8a6d-46ac-9db4-3e029d206b28)
+
+Looking into my VPC listing, the VPC in eu-west-2 does not have a name so it will not be found by the filters. Since it is read only, I will try to change it's name from here.
+
+Also looking while looking with command 'aws ec2 --region eu-west-2 describe-subets' We can see that no subnet is in the region of eu-west-2a. While the query in the script tries to find one. I will change the area to 2b.
+
+This didn't work so I went back to VPC management window in AWS. I found the MomPopCafe VPC in a different region of us-east-1a.
+
+![kuva](https://github.com/user-attachments/assets/77a0e89a-a934-4134-9c9d-d3580b4cad3d)
+
+Under this VPC there also seems to be the wanted subnets.
+
+After a quick google session, it seems you can't easily copy a whole vpc and the other way would be to build it from ground up. I will simply change the origin of the vpc and subnet location.
+
+![kuva](https://github.com/user-attachments/assets/0610cf8f-6959-49c6-8f9a-e2b40755d90f)
+
+A new error is always progress. Now I will check the images.
+
+![kuva](https://github.com/user-attachments/assets/aebfa9c5-bfd9-4e4c-b58b-3fde76f933fc)
+
+Found the culprit to be a wrong region in the creating EC2 instance command.
+
+![kuva](https://github.com/user-attachments/assets/498192fa-e15f-492c-ab53-f27b40e1c22b)
+
+This time the program got through and I can see if the connection works.
+
+While waiting for the booting to complete, I noticed that a wrong port is opened while creating the instance. I will change it to 80.
+
+My SSH connection would not work. I checked and it seems no key pair was ever created while creating a machine. In ec2 keypairs there is a keypair called vockey. I will try to use this.
+
+![kuva](https://github.com/user-attachments/assets/37acab53-7654-4f8e-9764-941a06b72025)
+
+![kuva](https://github.com/user-attachments/assets/0344dfe9-2053-4c86-84e3-28456842b633)
 
 
 
+After adding parameter '--key-name $key' to the file it now lets me log in.
 
 
+It also seems the fixing of the port now lets me load the page.
+
+![kuva](https://github.com/user-attachments/assets/137cd021-e3fe-45a9-ab08-82100b4e83e0)
+
+The logs were fine.
+
+The page also works now.
+
+![kuva](https://github.com/user-attachments/assets/e86a90e5-ecd3-4da8-aaf9-f78294707dce)
+
+Order confirmation worked.
+
+![kuva](https://github.com/user-attachments/assets/43734482-0b9c-4694-8231-1c55f22c4381)
+
+And it shows in the order history page.
+
+![kuva](https://github.com/user-attachments/assets/14db53b1-9730-40bf-9f5e-75df172342f8)
+
+Lab completed.
 
 
+## Thoughts
 
-
-
-
-
-
-
+This Activity was a fairly confusing in the beginning since it was not clear what to do with the region being wrong. I spent a long time just trying to figure out if it even was possible to move the VPC and subnets. However this figuring out and banging my head on the wall helped me understand better how the EC2 launch process goes and what potholes there could be while troubleshooting. All in all this was a good challenge to seek information but frustrating because it wasn't clear was it expected to just get this working or create an AWS infrastructure for it also.
 
 
 
