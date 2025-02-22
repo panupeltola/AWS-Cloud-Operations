@@ -127,6 +127,118 @@ I should now enable group metrics to be collected, but there is no such item on 
 
 Lab complete
 
+# Activity 4
+
+Activity Objectives
+
+After completing this activity, you will be able to:
+
+    Configure a Route 53 health check that sends emails when the health of an HTTP endpoint turns unhealthy.
+    Configure failover routing in Amazon Route 53.
+
+
+    
+Parameter for currency is dollar (as should since the server is in US region, us-east to be specific)
+
+![kuva](https://github.com/user-attachments/assets/d0014391-db45-4b5a-a959-9cc270441124)
+
+![kuva](https://github.com/user-attachments/assets/7ff4e2a0-d063-4aa0-afaf-56bf8eebdccb)
+
+*Server info showing after switching the value from parameter storage about show server status to true*
+
+![kuva](https://github.com/user-attachments/assets/1d3244b6-3502-4597-962e-b2d50f4fc81e)
+
+*Parameters working as supposed from the parameter storage. Currency and time zone are correct*
+
+In the Route 53 tab I created a new health check with given values:
+
+![kuva](https://github.com/user-attachments/assets/e3559ced-a851-497b-a688-8f431fef452c)
+
+I created notification:
+
+![kuva](https://github.com/user-attachments/assets/25cc6e37-2c24-4b09-9e3c-08821ebdb6f7)
+
+The website is healthy.
+
+![kuva](https://github.com/user-attachments/assets/1583e12f-3d83-4a73-aede-8e19d1d55952)
+
+After this I went to the Hosted zones tab and clicked on one of the zones.
+
+![kuva](https://github.com/user-attachments/assets/3a9fd6fb-9049-482d-95c2-7fec8f62e6ed)
+
+It had two DNS records already.
+
+Next I created a new record for failover.
+
+![kuva](https://github.com/user-attachments/assets/145280fd-9e76-43ac-8326-17761d3f3281)
+
+I created another failover website for the second instance. The difference between these two is the Failover recovery type. On the first record it was "Primary" which means it is the default DNS location if the page can not be connected to. The second record was secondary failover where the traffic will be directed there if the primary failover is not aviable.
+
+![kuva](https://github.com/user-attachments/assets/31a6663b-b38a-43e5-8cd2-4f40dda53b9e)
+
+By following the record link I am connected to the Instance 1 which has the IP starting with 54.
+
+![kuva](https://github.com/user-attachments/assets/d70e5b0d-7724-48e5-ac79-b07bcc4d0f3f)
+
+I stopped instance 1:
+
+![kuva](https://github.com/user-attachments/assets/59b4a67f-27a2-4dab-9091-8f3039390627)
+
+We can see now that the Health check fails.
+
+![kuva](https://github.com/user-attachments/assets/74d9683d-1d3c-42eb-a85f-774151b94691)
+
+At this point I got a bit stuck because the other page would not load. 
+
+
+![kuva](https://github.com/user-attachments/assets/1b000fc4-af94-4771-bfb8-1db75f5c60f8)
+
+After a while of looking at instructions I noticed that the secondary failover does not have a health check linked to it. After deleting the health check the failover worked instantly.
+
+![kuva](https://github.com/user-attachments/assets/7b161fca-6914-4ec6-ade9-448498ff3272)
+
+*IP starting with 98*
+
+My understanding for why this happened is that the health of the link is connected to the health check so when I had it active on both records they both told DNS they were down, eventhough in reality only instance 1 was down.
+
+Activity complete.
+
+*Panu Peltola*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
