@@ -342,6 +342,12 @@ Next I had to fix the SSH connection. The SSH problem was not solved allthough t
 
 ![kuva](https://github.com/user-attachments/assets/6cae4b07-157c-45f3-9d03-26450c31f4af)
 
+I was instructed to look at NACL or network access control lists of the subnet.
+
+I had to look up what was the difference between a route table and NACL because they seemed to do the same thing in blocking traffic.
+
+The difference described in a Stack Overflow [forum post](https://stackoverflow.com/questions/60211533/what-is-the-diference-between-network-acl-and-route-tables-in-aws)  is that all traffic is checked against subnet's NACL rules and is working effectively as the firewall of the subnet. Route table only routes the traffic. If no route is found the packet is dropped so in a way they work in very similar way. Both need to allow traffic for it to go in or out the subnet. NACL is usually used for controlling larger entities like blocking all traffic from a certain IP address range or blocking some network traffic type for all interfaces inside the subnet.
+
 I ran the command 'aws ec2 describe-network-acls --filter "Name=association.subnet-id,Values='subnet-0ee36117ae7ed1ec0'" --query 'NetworkAcls[*].[NetworkAclId,Entries]''
 
 And in the output I saw an issue. 
