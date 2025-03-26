@@ -398,3 +398,5 @@ At this point my lab time ran out and I could not access the instance any more.
 
 After thinking for a while, I realized that the reason my IP address would not show on the "REJECTED" filter was because I had tried to connect to the wrong IP-address and only corrected the IP after I had already solved the issue on the route table and ACL.
 
+*Panu Peltola & Alan Titov*
+
