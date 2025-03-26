@@ -1,4 +1,4 @@
-![kuva](https://github.com/user-attachments/assets/616634de-ed45-4e42-a09f-c2d59eb2a13f)![kuva](https://github.com/user-attachments/assets/1c419ff1-a69c-439e-8ea0-8606fb32aaaa)# Module 7
+# Module 7
 
 In this module we looked at how AWS manages networking. The logic behind AWS is in a way a bit limited compared to creating your own network, but with the connectivity options these limitations can be avoided.
 The backbone of a AWS network is a VPC (Virtual Private Cloud) which is a private IP address space in which you can deploy networking components. It works like any other network but for example a VPC is limited to one region and it can only have so many addresses.
