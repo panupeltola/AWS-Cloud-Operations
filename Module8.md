@@ -95,6 +95,116 @@ After this I synced the files and the old version was back.
 
 Lab complete.
 
+## Activity 8 - Work with Amazon S3
+
+Objectives for the activity
+
+- Use the s3api and s3 AWS CLI commands to create and configure an Amazon S3 bucket.
+- Configure an Amazon S3 bucket for file sharing with an external user.
+- Secure an Amazon S3 bucket for different access requirements by using Amazon S3 permissions.
+- Configure event notification on an Amazon S3 bucket
+
+### Task 2
+
+I started by creating the bucket.
+
+![kuva](https://github.com/user-attachments/assets/24ee3a6a-4328-487b-b6b7-0ec32a54ed25)
+
+Here the command 'mb' is short for make bucket and is a command called for that.
+
+![kuva](https://github.com/user-attachments/assets/95c2fd61-f7c8-47ce-bc26-37cd5bc16a87)
+
+Synced files and listed them.
+
+### Task 3
+
+I looked at the permissions of the user.
+
+![kuva](https://github.com/user-attachments/assets/da28765b-3841-4859-8901-a12943b0a5ba)
+
+It allows to get list and describe the objects of s3 buckets.
+
+Next I revieved the policies and created a new access key.
+
+![kuva](https://github.com/user-attachments/assets/48e7173c-6030-4ea5-86d4-886936d295cb)
+
+I copied the account number as:
+
+533267375319
+
+
+Next I logged in via another browser session.
+
+![kuva](https://github.com/user-attachments/assets/55d900ea-76c3-4f28-8cc5-431e10d42157)
+
+Here I navigated to the Donuts picture and it worked.
+
+![kuva](https://github.com/user-attachments/assets/f31a1ba9-33c1-43e4-a8cc-64cc2607212b)
+
+I could upload photos
+
+![kuva](https://github.com/user-attachments/assets/ab4163d6-61b0-4528-8a9c-70b3a6365c1d)
+
+Deletion succeeded
+
+![kuva](https://github.com/user-attachments/assets/568d5f14-f66c-4eed-8650-3ab5c59965ac)
+
+Permissions could not be changed.
+
+![kuva](https://github.com/user-attachments/assets/d7d3f0cd-dce8-4b8e-82af-44d9e97a3f32)
+
+### Task 4 Configure event notifications on the Amazon S3 share bucket
+
+I created a topic with ARN arn:aws:sns:us-east-1:533267375319:s3NotificationTopic
+
+![kuva](https://github.com/user-attachments/assets/900eb6ea-9d0d-481c-a726-4b012510de06)
+
+In the access policy I created a rule to allow the SNS to be accessed to the topic.
+
+Next I created a subscription
+
+![kuva](https://github.com/user-attachments/assets/1b9c0f7e-4219-4936-a69c-79b4f2f9900f)
+
+Next I created the json.
+
+![kuva](https://github.com/user-attachments/assets/1dd6da6d-ddc2-4b8f-a438-d97f30447233)
+
+At this point I got stuck, I couldn't get the notification to work. Probably a typo somewhere, but this error didn't go away and I didn't get the notification to work.
+
+![kuva](https://github.com/user-attachments/assets/c5fb67d7-85c5-4aa3-a2fb-9f276dc81bfd)
+
+*Panu Peltola*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
