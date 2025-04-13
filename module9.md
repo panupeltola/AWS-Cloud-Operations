@@ -1,4 +1,4 @@
-![kuva](https://github.com/user-attachments/assets/8b76a251-dbc1-484d-ae65-8d0906b0cfab)# Module 9
+# Module 9
 
 ## Lab 6
 
